@@ -7,7 +7,7 @@ router.route("/").get((req,res) => {
 })
 
 router.route("/").post((req,res) => {
-    res.status(200).json({messege:"Create Contact"});  //NOTE-> we use this to retrieve it as json data with status code
+    res.status(300).json({messege:"Create Contact"});  //NOTE-> we use this to retrieve it as json data with status code
 })
 
 router.route("/:id").get((req,res) => {
