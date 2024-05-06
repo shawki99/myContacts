@@ -20,7 +20,12 @@ const createContact = asyncHandler(async(req,res) => {
         res.status(400);
         throw new Error("All fields are mandatory !");
     }
-    res.status(201).json({messege:"Create Contact"});  //NOTE-> we use this to retrieve it as json data with status code
+    const contact = await Contact.create({
+        name,
+        email,
+        phone,
+    });
+    res.status(201).json(contact);  //NOTE-> we use this to retrieve it as json data with status code
 });
 
 //@desc Get  contact
