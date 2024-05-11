@@ -24,6 +24,13 @@ const registerUser = asyncHandler(async (req,res) =>{
         email,
         password: hashedPassword,
     })
+    console.log(`user created ${user}`);
+    if(usser){
+        res.statusCode(201).json({_id: user.id, email: user.email});
+    }else{
+        res.status(400);
+        throw new Error("User data is not valid");
+    }
     res.json({message: "registered the user"});
 });
 
